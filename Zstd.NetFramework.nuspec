@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <readme>content\README.md</readme>
+    <id>Zstd.NetFramework</id>
+    <version>2.0.1</version>
+    <title>Zstd.NetFramework</title>
+    <authors>lalaki</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/lalakii/Zstd.NetFramework</projectUrl>
+    <description>A NuGet package for C# that wraps libzstd.dll for compression and decompression using Zstandard.</description>
+    <releaseNotes>This is a Wrappers based on P/Invoke implementations.</releaseNotes>
+    <copyright>Copyright (C) 2025 lalaki.cn</copyright>
+    <tags>zstd libzstd pinvoke windows</tags>
+    <icon>Icon.png</icon>
+    <repository type="git" url="https://github.com/lalakii/Zstd.NetFramework" />
+  </metadata>
+  <files>
+    <file src="Zstd.NetFramework.targets" target="build"  />
+    <file src="zstd_logo86.png" target="Icon.png"  />
+  </files>
+</package>

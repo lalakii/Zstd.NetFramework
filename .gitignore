@@ -1,0 +1,9 @@
+﻿# ignore by lalaki.cn
+bin/
+.vs/
+obj/
+packages/
+*.csproj.user
+*.pdb
+*.exe
+*.nupkg

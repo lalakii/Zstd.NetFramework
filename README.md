@@ -3,7 +3,7 @@
 
 This is a Wrappers based on P/Invoke implementations.
 
-Functions implemented by calling [facebook/zstd](https://github.com/facebook/zstd)(v1.5.6).
+Functions implemented by calling [facebook/zstd](https://github.com/facebook/zstd)(dev).
 
 ## API
 ```cs
@@ -45,4 +45,4 @@ using (var cstream = File.OpenRead("path\\of\\example.zst"))
 }
 ```
 ## License
-[MIT](LICENSE)
+[MIT](https://github.com/lalakii/Zstd.NetFramework/blob/master/LICENSE)

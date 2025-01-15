@@ -9,7 +9,7 @@ namespace CN.Lalaki.Zstd
     {
         private const string DllName = "libzstd.dll";
         private const uint LoadLibrarySearchDefaultDirs = 0x00001000;
-        private const string ZstdVersion = "zstd-v1.5.6";
+        private const string ZstdVersion = "zstd-v1.5.7-dev";
         private static readonly string WorkingDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         static Zstd()
@@ -53,8 +53,8 @@ namespace CN.Lalaki.Zstd
                 int bytesRead;
                 while ((bytesRead = src.Read(bufferIn, 0, bufferIn.Length)) > 0)
                 {
-                    ZstdBuffer inputBuffer = new() { Buffer = pBufferIn, Size = (size_t)bytesRead };
-                    ZstdBuffer outputBuffer = new() { Buffer = pBufferOut, Size = bufferOutSize };
+                    var inputBuffer = new ZstdBuffer { Buffer = pBufferIn, Size = (size_t)bytesRead };
+                    var outputBuffer = new ZstdBuffer { Buffer = pBufferOut, Size = bufferOutSize };
                     if (ZSTD_isError(ZSTD_compressStream(zcs, ref outputBuffer, ref inputBuffer)) != 0)
                     {
                         Marshal.FreeHGlobal(pBufferOut);
@@ -102,8 +102,8 @@ namespace CN.Lalaki.Zstd
                 int bytesRead;
                 while ((bytesRead = src.Read(bufferIn, 0, bufferIn.Length)) > 0)
                 {
-                    size_t srcPos = (size_t)0;
-                    size_t dstPos = (size_t)0;
+                    var srcPos = (size_t)0;
+                    var dstPos = (size_t)0;
                     if (bytesRead < bufferIn.Length)
                     {
                         endOp = 2;

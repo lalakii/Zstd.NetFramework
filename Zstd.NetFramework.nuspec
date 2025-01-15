@@ -3,7 +3,7 @@
   <metadata>
     <readme>content\README.md</readme>
     <id>Zstd.NetFramework</id>
-    <version>2.0.1</version>
+    <version>2.0.3</version>
     <title>Zstd.NetFramework</title>
     <authors>lalaki</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

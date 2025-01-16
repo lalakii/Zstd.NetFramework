@@ -37,11 +37,11 @@ using (var cstream = File.OpenRead("path\\of\\example.zst"))
     Zstd.CompressStream(destream, c2stream, 3);
     // Decompress Byte Array
     const int bufferSize = 1024 * 1024 * 20; // if 20MB, must be larger than original file size
-    var ddata = Zstd.Decompress(c2stream.ToArray(), bufferSize);
-    Console.WriteLine("Decompress Size: {0}", ddata.Length);
+    var dData = Zstd.Decompress(c2stream.ToArray(), bufferSize);
+    Console.WriteLine("Decompress Size: {0}", dData.Length);
     // Compress Byte Array
-    var cdata = Zstd.Compress(ddata, 3);
-    Console.WriteLine("Compress Size {0}", cdata.Length);
+    var cData = Zstd.Compress(dData, 3);
+    Console.WriteLine("Compress Size {0}", cData.Length);
 }
 ```
 ## License

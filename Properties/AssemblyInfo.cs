@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
+[assembly: ComVisible(false)]
+[assembly: Guid("c9d85922-989e-42af-92eb-cd7fb6fd55fb")]
+[assembly: AssemblyCopyright("Copyright (C) 2025 lalaki.cn")]
 [assembly: AssemblyTitle("Zstd.NetFramework")]
 [assembly: AssemblyProduct("Zstd.NetFramework")]
-[assembly: AssemblyCopyright("Copyright (C) 2025 lalaki.cn")]
-[assembly: ComVisible(false)]
-[assembly: Guid("b5669b0a-2e8a-4b3a-b3b4-49c6c4bc7083")]
-[assembly: AssemblyVersion("2.0.2")]
+[assembly: AssemblyVersion("2.0.4")]

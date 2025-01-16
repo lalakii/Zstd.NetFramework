@@ -8,22 +8,16 @@ namespace CN.Lalaki.Zstd
     public static class Zstd
     {
         private const string DllName = "libzstd.dll";
-        private const uint LoadLibrarySearchDefaultDirs = 0x00001000;
         private const string ZstdVersion = "zstd-v1.5.7-dev";
-        private static readonly string WorkingDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         static Zstd()
         {
-            SetDefaultDllDirectories(LoadLibrarySearchDefaultDirs);
-            var dllPath = Path.Combine(WorkingDirectory, ZstdVersion);
-            if (!Environment.Is64BitProcess)
+            var workingDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            var dllFullName = Path.Combine(workingDirectory, $"{ZstdVersion}{(Environment.Is64BitProcess ? string.Empty : "\\x86")}\\{DllName}");
+            if (File.Exists(dllFullName))
             {
-                dllPath = Path.Combine(dllPath, "x86\\");
+                LoadLibraryEx(dllFullName, IntPtr.Zero, 0);
             }
-
-            var pDllPath = Marshal.StringToHGlobalAuto(dllPath);
-            AddDllDirectory(pDllPath);
-            Marshal.FreeHGlobal(pDllPath);
         }
 
         public static byte[] Compress(byte[] src, int level)
@@ -217,10 +211,7 @@ namespace CN.Lalaki.Zstd
         }
 
         [DllImport("kernel32.dll")]
-        private static extern int AddDllDirectory(IntPtr newDirectory);
-
-        [DllImport("kernel32.dll")]
-        private static extern bool SetDefaultDllDirectories(uint directoryFlags);
+        private static extern IntPtr LoadLibraryEx(string lpLibFileName, IntPtr hFile, uint dwFlags);
 
         [DllImport(DllName)]
         private static extern size_t ZSTD_compress(byte[] dst, size_t dstCapacity, byte[] src, size_t srcSize, int compressionLevel);

@@ -7,3 +7,4 @@ packages/
 *.pdb
 *.exe
 *.nupkg
+/nupkgs

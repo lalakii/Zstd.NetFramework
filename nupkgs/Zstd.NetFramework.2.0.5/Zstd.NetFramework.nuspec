@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Zstd.NetFramework</id>
+    <version>2.0.5</version>
+    <authors>lalaki</authors>
+    <license type="file">LICENSE</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>zstd_logo86.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/lalakii/Zstd.NetFramework</projectUrl>
+    <description>A NuGet package for C# that wraps libzstd.dll for compression and decompression using Zstandard.</description>
+    <releaseNotes>v2.0.5 Zstd.NetFramework - release.</releaseNotes>
+    <copyright>Copyright (C) 2025 lalaki.cn</copyright>
+    <tags>zstd libzstd pinvoke windows decompress compress</tags>
+    <repository type="git" url="https://github.com/lalakii/Zstd.NetFramework" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.2" />
+      <group targetFramework=".NETFramework4.8" />
+      <group targetFramework=".NETFramework4.8.1" />
+      <group targetFramework="net8.0" />
+      <group targetFramework="net9.0" />
+    </dependencies>
+  </metadata>
+</package>

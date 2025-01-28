@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<ZstdLibVersion>zstd-v1.5.7-dev</ZstdLibVersion>
+	</PropertyGroup>
+	<ItemGroup>
+		<Content Include="$(MSBuildThisFileDirectory)..\runtimes\$(ZstdLibVersion)\libzstd.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Link>$(ZstdLibVersion)\libzstd.dll</Link>
+		</Content>
+		<Content Include="$(MSBuildThisFileDirectory)..\runtimes\$(ZstdLibVersion)\x86\libzstd.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Link>$(ZstdLibVersion)\x86\libzstd.dll</Link>
+		</Content>
+	</ItemGroup>
+</Project>

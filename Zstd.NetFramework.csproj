@@ -1,58 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <LangVersion>preview</LangVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B5669B0A-2E8A-4B3A-B3B4-49C6C4BC7083}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>CN.Lalaki.Zstd</RootNamespace>
-    <AssemblyName>Zstd.NetFramework</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-    <GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <ResolveNuGetPackages>false</ResolveNuGetPackages>
-    <IsPackable>true</IsPackable>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>S1075;SA1600;SA1633;SA1200;SA0001</NoWarn>
-    <UseWinFormsOutOfProcDesigner>False</UseWinFormsOutOfProcDesigner>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <TargetFrameworks>net462;net48;net481;net8.0;net9.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>Zstd.NetFramework</PackageId>
+    <PackageVersion>2.0.5</PackageVersion>
+    <Version>2.0.5</Version>
+    <Authors>lalaki</Authors>
+    <Company>lalaki</Company>
+    <Description>A NuGet package for C# that wraps libzstd.dll for compression and decompression using Zstandard.</Description>
+    <PackageReleaseNotes>v2.0.5 Zstd.NetFramework - release.</PackageReleaseNotes>
+    <Copyright>Copyright (C) 2025 lalaki.cn</Copyright>
+    <Product>Zstd.NetFramework</Product>
+    <PackageIcon>zstd_logo86.png</PackageIcon>
+    <RepositoryUrl>https://github.com/lalakii/Zstd.NetFramework</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/lalakii/Zstd.NetFramework</PackageProjectUrl>
+    <PackageTags>zstd libzstd pinvoke windows decompress compress</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+    <NoWarn>SYSLIB1054;IDE0130;</NoWarn>
     <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <NoWarn>S1075;SA1600;SA1633;SA1200;SA0001</NoWarn>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <UseWinFormsOutOfProcDesigner>False</UseWinFormsOutOfProcDesigner>
+    <NoWin32Manifest>true</NoWin32Manifest>
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-    <Compile Include="Zstd.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Remove="nupkgs\**" />
+    <EmbeddedResource Remove="nupkgs\**" />
+    <None Remove="nupkgs\**" />
+    <None Include="LICENSE" Pack="true" PackagePath="" />
+    <None Include="README.md" Pack="true" PackagePath="" />
+    <None Include="zstd_logo86.png" Pack="true" PackagePath="" />
+    <None Include="Zstd.NetFramework.targets" Pack="true" PackagePath="build" />
+    <None Include="zstd-v1.5.7-dev\**" Pack="true" PackagePath="runtimes\zstd-v1.5.7-dev" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PostBuildEvent>lalaki_sign "$(TargetPath)"&gt;NUL 2&gt;&amp;1 &amp;</PostBuildEvent>
-  </PropertyGroup>
-  <Target Name="AfterBuild">
-    <Exec Command="nuget pack Zstd.NetFramework.csproj -Properties Configuration=$(Configuration)" />
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="lalaki_sign &quot;$(TargetPath)&quot;&gt;NUL 2&gt;&amp;1 &amp;" />
   </Target>
 </Project>

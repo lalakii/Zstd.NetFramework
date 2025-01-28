@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using size_t = System.UIntPtr;
 
 namespace CN.Lalaki.Zstd
@@ -12,7 +10,7 @@ namespace CN.Lalaki.Zstd
 
         static Zstd()
         {
-            var workingDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            var workingDirectory = $"{Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)}";
             var dllFullName = Path.Combine(workingDirectory, $"{ZstdVersion}{(Environment.Is64BitProcess ? string.Empty : "\\x86")}\\{DllName}");
             if (File.Exists(dllFullName))
             {

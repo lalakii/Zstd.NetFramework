@@ -208,7 +208,7 @@ namespace CN.Lalaki.Zstd
             ZSTD_freeDStream(zds);
         }
 
-        [DllImport("kernel32.dll")]
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
         private static extern IntPtr LoadLibraryEx(string lpLibFileName, IntPtr hFile, uint dwFlags);
 
         [DllImport(DllName)]

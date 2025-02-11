@@ -50,6 +50,7 @@ using (var cstream = File.OpenRead("path\\of\\example.zst"))
     Console.WriteLine("Compress Size {0}", cData.Length);
 }
 ```
+
 ## License
 
 [MIT](https://github.com/lalakii/Zstd.NetFramework/blob/master/LICENSE)

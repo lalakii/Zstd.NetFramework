@@ -2,16 +2,16 @@
 
   <PropertyGroup>
     <LangVersion>preview</LangVersion>
-    <TargetFrameworks>net462;net472;net48;net481;net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net462;net47;net471;net472;net48;net481;net8.0;net9.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Zstd.NetFramework</PackageId>
-    <PackageVersion>2.0.6</PackageVersion>
-    <Version>2.0.6</Version>
+    <PackageVersion>2.0.7</PackageVersion>
+    <Version>2.0.7</Version>
     <Authors>lalaki</Authors>
     <Company>lalaki</Company>
     <Description>A NuGet package for C# that wraps libzstd.dll for compression and decompression using Zstandard.</Description>
-    <PackageReleaseNotes>v2.0.6 Zstd.NetFramework - release.</PackageReleaseNotes>
+    <PackageReleaseNotes>v2.0.7 Zstd.NetFramework - release.</PackageReleaseNotes>
     <Copyright>Copyright (C) 2025 lalaki.cn</Copyright>
     <Product>Zstd.NetFramework</Product>
     <PackageIcon>zstd_logo86.png</PackageIcon>
@@ -21,13 +21,19 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
-    <NoWarn>SYSLIB1054;IDE0130;</NoWarn>
+    <NoWarn>SYSLIB1054;IDE0130;SA1200;SA1600;SA1633;SA0001;CA1724;</NoWarn>
     <DebugType>none</DebugType>
     <NoWin32Manifest>true</NoWin32Manifest>
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
-    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <AnalysisLevel>latest-all</AnalysisLevel>
+    <OutputType>Library</OutputType>
+    <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <Compile Remove="nupkgs\**" />
     <EmbeddedResource Remove="nupkgs\**" />
     <None Remove="nupkgs\**" />

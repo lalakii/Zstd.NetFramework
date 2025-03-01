@@ -6,8 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Zstd.NetFramework</PackageId>
-    <PackageVersion>2.0.7</PackageVersion>
-    <Version>2.0.7</Version>
+    <PackageVersion>2.0.8</PackageVersion>
+    <Version>2.0.8</Version>
     <Authors>lalaki</Authors>
     <Company>lalaki</Company>
     <Description>A NuGet package for C# that wraps libzstd.dll for compression and decompression using Zstandard.</Description>
@@ -41,7 +41,7 @@
     <None Include="README.md" Pack="true" PackagePath="" />
     <None Include="zstd_logo86.png" Pack="true" PackagePath="" />
     <None Include="Zstd.NetFramework.targets" Pack="true" PackagePath="build" />
-    <None Include="zstd-v1.5.7-dev\**" Pack="true" PackagePath="runtimes\zstd-v1.5.7-dev" />
+    <None Include="zstd-v1.5.7-release\**" Pack="true" PackagePath="runtimes\zstd-v1.5.7-release" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="lalaki_sign &quot;$(TargetPath)&quot;&gt;NUL 2&gt;&amp;1 &amp;" />

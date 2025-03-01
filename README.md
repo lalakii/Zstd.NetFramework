@@ -5,7 +5,7 @@
 
 This is a Wrappers based on P/Invoke implementations.
 
-Functions implemented by calling [facebook/zstd](https://github.com/facebook/zstd)(dev).
+Functions implemented by calling [facebook/zstd](https://github.com/facebook/zstd)(release).
 
 ## API
 

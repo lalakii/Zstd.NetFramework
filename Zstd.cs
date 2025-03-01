@@ -7,7 +7,7 @@ namespace CN.Lalaki.Zstd
     public static class Zstd
     {
         private const string DllName = "libzstd.dll";
-        private const string ZstdVersion = "zstd-v1.5.7-dev";
+        private const string ZstdVersion = "zstd-v1.5.7-release";
         private static IntPtr hModule = IntPtr.Zero;
 
         static Zstd()
@@ -249,9 +249,9 @@ namespace CN.Lalaki.Zstd
 
         public static void FreeLibrary()
         {
-            while (FreeLibrary(hModule))
+            for (int errCount = 0; FreeLibrary(hModule) && errCount < 20; errCount++)
             {
-                Thread.Sleep(2);
+                Thread.Sleep(1);
             }
         }
 

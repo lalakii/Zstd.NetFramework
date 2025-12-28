@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <LangVersion>preview</LangVersion>
-    <TargetFrameworks>net462;net47;net471;net472;net48;net481;net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net462;net47;net471;net472;net48;net481;net8.0;net9.0;net10.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Zstd.NetFramework</PackageId>
-    <PackageVersion>2.0.8</PackageVersion>
-    <Version>2.0.8</Version>
+    <PackageVersion>2.0.9</PackageVersion>
+    <Version>2.0.9</Version>
     <Authors>lalaki</Authors>
     <Company>lalaki</Company>
     <Description>A NuGet package for C# that wraps libzstd.dll for compression and decompression using Zstandard.</Description>
